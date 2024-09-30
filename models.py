@@ -39,12 +39,12 @@ class Sale(Base):
 	__tablename__ = 'sale'
 	id = Column(Integer, primary_key=True)
 	price = Column(Float, nullable=False)
-	date_price = Column(DateTime, nullable=False)
+	date_sale = Column(DateTime, nullable=False)
 	id_stock = Column(Integer, ForeignKey('stock.id'), nullable=False)
 	count = Column(Integer, nullable=False)
 	stock = relationship('Stock', backref='sales')
 
 
 def create_tables(engine):
-	# Base.metadata.drop_all(engine)
+	Base.metadata.drop_all(engine)
 	Base.metadata.create_all(engine)
